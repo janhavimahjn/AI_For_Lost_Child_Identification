@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  color-scheme: light;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  background-color: #05030b;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(124, 92, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(49, 208, 170, 0.18), transparent 38%),
+    linear-gradient(180deg, #05030b, #0c0a15);
+  color: #f9f9fb;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.5);
+  color: #fff;
+}
+
+.glow-button {
+  @apply rounded-full px-6 py-3 font-semibold text-sm md:text-base transition-all duration-300 relative overflow-hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(124, 92, 255, 0.4), rgba(49, 208, 170, 0.4));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-button:hover::after {
+  opacity: 1;
+}
+
+.glow-button:hover {
+  box-shadow: 0 15px 45px rgba(124, 92, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.card-surface {
+  @apply rounded-2xl border border-white/10 backdrop-blur-2xl;
+  background: rgba(16, 12, 32, 0.65);
+  box-shadow: 0 25px 70px rgba(5, 5, 11, 0.35);
+}
+
+.accent-pill {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide;
+  background: rgba(124, 92, 255, 0.12);
+  color: #d8cbff;
+}
